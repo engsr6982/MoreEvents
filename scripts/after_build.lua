@@ -102,6 +102,17 @@ function pack_mod(target,mod_define)
             os.cp(oripdbfile, pdbfile)
         end
 
+        -- SDK folder
+        local target_include_dir = path.join(outputdir, "include")
+        local target_lib_dir = path.join(outputdir, "lib")
+        os.mkdir(target_include_dir)
+        os.mkdir(target_lib_dir)
+        -- SDK copy *.h and lib
+        local h = path.join(os.projectdir(), "src", "more_events")
+        local lib = path.join(path.directory(oritargetfile), path.basename(oritargetfile) .. ".lib")
+        os.cp(path.join(h, "**.h"), target_include_dir)
+        os.cp(lib, target_lib_dir)
+
         formattedmanifest = string_formatter(manifest, mod_define)
         io.writefile(manifestfile,formattedmanifest)
         cprint("${bright green}[mod Packer]: ${reset}mod already generated to " .. outputdir)
