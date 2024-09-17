@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/common/wrapper/optional_ref.h"
@@ -15,13 +16,13 @@ protected:
     optional_ref<Player> mPlayer;
 
 public:
-    constexpr explicit PlayerAttackBlockEvent(BlockPos const& pos, optional_ref<Player> player)
+    MORE_EVENTS_API constexpr explicit PlayerAttackBlockEvent(BlockPos const& pos, optional_ref<Player> player)
     : Cancellable(),
       mPos(pos),
       mPlayer(player) {}
 
-    BlockPos const&      getPos() const;
-    optional_ref<Player> getPlayer() const;
+    MORE_EVENTS_API BlockPos const& getPos() const;
+    MORE_EVENTS_API optional_ref<Player> getPlayer() const;
 };
 
 

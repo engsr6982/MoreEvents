@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/Actor.h"
@@ -18,7 +19,7 @@ protected:
     WitherBoss&  mWitherBoss;
 
 public:
-    constexpr explicit WitherDestroyBlockEvent(
+    MORE_EVENTS_API constexpr explicit WitherDestroyBlockEvent(
         Level&       level,
         AABB const&  aabb,
         BlockSource& region,
@@ -31,10 +32,10 @@ public:
 
       mWitherBoss(witherBoss) {}
 
-    Level&       getLevel() const;
-    AABB const&  getAABB() const;
-    BlockSource& getRegion() const;
-    WitherBoss&  getWitherBoss() const;
+    MORE_EVENTS_API Level&       getLevel() const;
+    MORE_EVENTS_API AABB const&  getAABB() const;
+    MORE_EVENTS_API BlockSource& getRegion() const;
+    MORE_EVENTS_API WitherBoss&  getWitherBoss() const;
 };
 
 

@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/level/BlockPos.h"
@@ -15,15 +16,19 @@ protected:
     BlockPos const& mPushPos;
 
 public:
-    constexpr explicit PistonTryPushEvent(BlockSource& region, BlockPos const& pistonPos, BlockPos const& pushPos)
+    MORE_EVENTS_API constexpr explicit PistonTryPushEvent(
+        BlockSource&    region,
+        BlockPos const& pistonPos,
+        BlockPos const& pushPos
+    )
     : Cancellable(),
       mRegion(region),
       mPistonPos(pistonPos),
       mPushPos(pushPos) {}
 
-    BlockSource&    getRegion() const;
-    BlockPos const& getPistonPos() const;
-    BlockPos const& getPushPos() const;
+    MORE_EVENTS_API BlockSource&    getRegion() const;
+    MORE_EVENTS_API BlockPos const& getPistonPos() const;
+    MORE_EVENTS_API BlockPos const& getPushPos() const;
 };
 
 

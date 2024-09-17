@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/player/Player.h"
@@ -13,13 +14,13 @@ protected:
     ItemStack const& mItemStack;
 
 public:
-    constexpr explicit PlayerDropItemEvent(Player& player, ItemStack const& itemStack)
+    MORE_EVENTS_API constexpr explicit PlayerDropItemEvent(Player& player, ItemStack const& itemStack)
     : Cancellable(),
       mPlayer(player),
       mItemStack(itemStack) {}
 
-    Player&          getPlayer() const;
-    ItemStack const& getItemStack() const;
+    MORE_EVENTS_API Player&          getPlayer() const;
+    MORE_EVENTS_API ItemStack const& getItemStack() const;
 };
 
 

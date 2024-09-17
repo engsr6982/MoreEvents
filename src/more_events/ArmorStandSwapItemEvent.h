@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/Mob.h"
@@ -15,15 +16,19 @@ protected:
     Mob&                       mArmorStand;
 
 public:
-    constexpr explicit ArmorStandSwapItemEvent(Puv::Legacy::EquipmentSlot slot, Player& player, Mob& armorStand)
+    MORE_EVENTS_API constexpr explicit ArmorStandSwapItemEvent(
+        Puv::Legacy::EquipmentSlot slot,
+        Player&                    player,
+        Mob&                       armorStand
+    )
     : Cancellable(),
       mSlot(slot),
       mPlayer(player),
       mArmorStand(armorStand) {}
 
-    Puv::Legacy::EquipmentSlot getSlot() const;
-    Player&                    getPlayer() const;
-    Mob&                       getArmorStand() const;
+    MORE_EVENTS_API Puv::Legacy::EquipmentSlot getSlot() const;
+    MORE_EVENTS_API Player&                    getPlayer() const;
+    MORE_EVENTS_API Mob&                       getArmorStand() const;
 };
 
 

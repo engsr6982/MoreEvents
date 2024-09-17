@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/level/BlockPos.h"
@@ -20,7 +21,7 @@ protected:
     bool&        mAllowUnderWater;
 
 public:
-    constexpr explicit ExplodeEvent(
+    MORE_EVENTS_API constexpr explicit ExplodeEvent(
         BlockSource& region,
         Actor*       sourceEntity,
         Vec3 const&  pos,
@@ -40,14 +41,14 @@ public:
       mDestroyBlocks(destroyBlocks),
       mAllowUnderWater(allowUnderWater) {}
 
-    BlockSource& getRegion() const;
-    Actor*       getSourceEntity() const;
-    Vec3 const&  getPos() const;
-    float&       getExplosionRadius() const;
-    float&       getMaxResistance() const;
-    bool&        getIsFire() const;
-    bool&        getDestroyBlocks() const;
-    bool&        getAllowUnderWater() const;
+    MORE_EVENTS_API BlockSource& getRegion() const;
+    MORE_EVENTS_API Actor*       getSourceEntity() const;
+    MORE_EVENTS_API Vec3 const&  getPos() const;
+    MORE_EVENTS_API float&       getExplosionRadius() const;
+    MORE_EVENTS_API float&       getMaxResistance() const;
+    MORE_EVENTS_API bool&        getIsFire() const;
+    MORE_EVENTS_API bool&        getDestroyBlocks() const;
+    MORE_EVENTS_API bool&        getAllowUnderWater() const;
 };
 
 

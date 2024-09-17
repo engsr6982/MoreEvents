@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/player/Player.h"
@@ -16,13 +17,13 @@ protected:
 
 
 public:
-    constexpr explicit PlayerUseItemFrameEvent(Player* player, BlockPos const& pos)
+    MORE_EVENTS_API constexpr explicit PlayerUseItemFrameEvent(Player* player, BlockPos const& pos)
     : Cancellable(),
       mPos(pos),
       mPlayer(player) {}
 
-    BlockPos const& getPos() const;
-    Player*         getPlayer() const;
+    MORE_EVENTS_API BlockPos const& getPos() const;
+    MORE_EVENTS_API Player*         getPlayer() const;
 };
 
 

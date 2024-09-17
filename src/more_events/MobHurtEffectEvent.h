@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/Actor.h"
@@ -15,15 +16,15 @@ protected:
     float&                   mDamage;
 
 public:
-    constexpr explicit MobHurtEffectEvent(ActorDamageSource const& source, Actor& self, float& damage)
+    MORE_EVENTS_API constexpr explicit MobHurtEffectEvent(ActorDamageSource const& source, Actor& self, float& damage)
     : Cancellable(),
       mSource(source),
       mSelf(self),
       mDamage(damage) {}
 
-    ActorDamageSource const& getSource() const;
-    Actor&                   getSelf() const;
-    float&                   getDamage() const;
+    MORE_EVENTS_API ActorDamageSource const& getSource() const;
+    MORE_EVENTS_API Actor&                   getSelf() const;
+    MORE_EVENTS_API float&                   getDamage() const;
 };
 
 

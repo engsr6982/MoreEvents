@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/world/actor/Actor.h"
@@ -17,15 +18,15 @@ protected:
 
 
 public:
-    constexpr explicit FarmDecayEvent(Actor* actor, BlockSource& blockSource, BlockPos const& pos)
+    MORE_EVENTS_API constexpr explicit FarmDecayEvent(Actor* actor, BlockSource& blockSource, BlockPos const& pos)
     : Cancellable(),
       mActor(actor),
       mBlockSource(blockSource),
       mPos(pos) {}
 
-    Actor*          getActor() const;
-    BlockSource&    getBlockSource() const;
-    BlockPos const& getPos() const;
+    MORE_EVENTS_API Actor*          getActor() const;
+    MORE_EVENTS_API BlockSource&    getBlockSource() const;
+    MORE_EVENTS_API BlockPos const& getPos() const;
 };
 
 
