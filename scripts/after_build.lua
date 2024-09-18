@@ -103,8 +103,8 @@ function pack_mod(target,mod_define)
         end
 
         -- SDK folder
-        local target_include_dir = path.join(outputdir, "include")
-        local target_lib_dir = path.join(outputdir, "lib")
+        local target_include_dir = path.join(bindir, "include", "more_events")
+        local target_lib_dir = path.join(bindir, "lib", "more_events")
         os.mkdir(target_include_dir)
         os.mkdir(target_lib_dir)
         -- SDK copy *.h and lib
