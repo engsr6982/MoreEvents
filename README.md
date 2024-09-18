@@ -30,7 +30,7 @@ package("xxx")
 - code.cpp
 
 ```cpp
-#include "ArmorStandSwapItemEvent.h"
+#include "more_events/ArmorStandSwapItemEvent.h"
 
 ll::event::ListenerPtr mArmorStandSwapItemEvent;
 
