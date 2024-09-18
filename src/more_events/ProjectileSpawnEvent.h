@@ -14,13 +14,13 @@ protected:
     std::string const& mProjectileType;
 
 public:
-    constexpr explicit ProjectileSpawnEvent(Actor* spawner, std::string const& projectileType)
+    MORE_EVENTS_API constexpr explicit ProjectileSpawnEvent(Actor* spawner, std::string const& projectileType)
     : Cancellable(),
       mSpawner(spawner),
       mProjectileType(projectileType) {}
 
-    Actor*             getSpawner() const;
-    std::string const& getProjectileType() const;
+    MORE_EVENTS_API Actor* getSpawner() const;
+    MORE_EVENTS_API std::string const& getProjectileType() const;
 };
 
 
