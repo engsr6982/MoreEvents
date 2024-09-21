@@ -5,7 +5,11 @@ add_repositories("liteldev-repo https://github.com/LiteLDev/xmake-repo.git")
 -- add_requires("levilamina x.x.x") for a specific version
 -- add_requires("levilamina develop") to use develop version
 -- please note that you should add bdslibrary yourself if using dev version
-add_requires("levilamina 0.13.5")
+-- add_requires("levilamina 0.13.5")
+
+-- 临时修复方案
+add_repositories("groupmountain-repo https://github.com/GroupMountain/xmake-repo.git")
+add_requires("levilaminalibrary 0.13.5")
 
 if not has_config("vs_runtime") then
     set_runtimes("MD")
@@ -26,7 +30,8 @@ target("MoreEvents") -- Change this to your mod name.
     add_defines("NOMINMAX", "UNICODE", "MORE_EVENTS_EXPORTS")
     add_files("src/**.cpp", "src/**.cc")
     add_includedirs("src")
-    add_packages("levilamina")
+    -- add_packages("levilamina")
+    add_packages("levilaminalibrary")
     add_shflags("/DELAYLOAD:bedrock_server.dll") -- To use symbols provided by SymbolProvider.
     set_exceptions("none") -- To avoid conflicts with /EHa.
     set_kind("shared")
