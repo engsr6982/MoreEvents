@@ -9,7 +9,7 @@
 namespace more_events {
 
 
-class MossSpreadEvent final : public ll::event::Cancellable<ll::event::Event> {
+class MossFertilizerEvent final : public ll::event::Cancellable<ll::event::Event> {
 protected:
     BlockSource&     mRegion;
     BlockPos const&  mPos;
@@ -17,7 +17,7 @@ protected:
     ::FertilizerType mFertilizer;
 
 public:
-    constexpr explicit MossSpreadEvent(
+    constexpr explicit MossFertilizerEvent(
         BlockSource&     region,
         BlockPos const&  pos,
         Actor*           actor,

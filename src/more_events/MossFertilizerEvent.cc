@@ -1,4 +1,4 @@
-#include "MossSpreadEvent.h"
+#include "MossFertilizerEvent.h"
 #include "ll/api/event/Emitter.h"
 #include "ll/api/event/EmitterBase.h"
 #include "ll/api/event/EventBus.h"
@@ -11,14 +11,14 @@
 namespace more_events {
 
 
-BlockSource&     MossSpreadEvent::getRegion() const { return mRegion; }
-BlockPos const&  MossSpreadEvent::getPos() const { return mPos; }
-Actor*           MossSpreadEvent::getActor() const { return mActor; }
-::FertilizerType MossSpreadEvent::getFertilizer() const { return mFertilizer; }
+BlockSource&     MossFertilizerEvent::getRegion() const { return mRegion; }
+BlockPos const&  MossFertilizerEvent::getPos() const { return mPos; }
+Actor*           MossFertilizerEvent::getActor() const { return mActor; }
+::FertilizerType MossFertilizerEvent::getFertilizer() const { return mFertilizer; }
 
 
 LL_TYPE_INSTANCE_HOOK(
-    MossSpreadEventHook,
+    MossFertilizerEventHook,
     ll::memory::HookPriority::Normal,
     MossBlock,
     "?onFertilized@MossBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z",
@@ -28,7 +28,7 @@ LL_TYPE_INSTANCE_HOOK(
     Actor*           actor,
     ::FertilizerType fertilizer
 ) {
-    MossSpreadEvent ev(region, pos, actor, fertilizer);
+    MossFertilizerEvent ev(region, pos, actor, fertilizer);
     ll::event::EventBus::getInstance().publish(ev);
     if (ev.isCancelled()) {
         return false;
@@ -38,8 +38,8 @@ LL_TYPE_INSTANCE_HOOK(
 
 
 static std::unique_ptr<ll::event::EmitterBase> emitterFactory(ll::event::ListenerBase&);
-class EventEmitter : public ll::event::Emitter<emitterFactory, MossSpreadEvent> {
-    ll::memory::HookRegistrar<MossSpreadEventHook> hook;
+class EventEmitter : public ll::event::Emitter<emitterFactory, MossFertilizerEvent> {
+    ll::memory::HookRegistrar<MossFertilizerEventHook> hook;
 };
 static std::unique_ptr<ll::event::EmitterBase> emitterFactory(ll::event::ListenerBase&) {
     return std::make_unique<EventEmitter>();
