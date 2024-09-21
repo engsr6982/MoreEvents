@@ -1,4 +1,5 @@
 #pragma once
+#include "Macros.h"
 #include "ll/api/event/Cancellable.h"
 #include "ll/api/event/Event.h"
 #include "mc/enums/FertilizerType.h"
@@ -28,10 +29,10 @@ public:
       mActor(actor),
       mFertilizer(fertilizer) {}
 
-    BlockSource&     getRegion() const;
-    BlockPos const&  getPos() const;
-    Actor*           getActor() const;
-    ::FertilizerType getFertilizer() const;
+    MORE_EVENTS_API BlockSource&     getRegion() const;
+    MORE_EVENTS_API BlockPos const&  getPos() const;
+    MORE_EVENTS_API Actor*           getActor() const;
+    MORE_EVENTS_API ::FertilizerType getFertilizer() const;
 };
 
 
