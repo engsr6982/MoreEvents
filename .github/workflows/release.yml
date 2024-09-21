@@ -2,7 +2,7 @@ on:
   release:
     types:
       - published
-  
+
 jobs:
   build:
     runs-on: windows-latest
@@ -46,10 +46,17 @@ jobs:
       - id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
 
+      - id: calculate-sha256-core
+        run: |
+          echo sha256=$(sha256sum ${{ github.event.repository.name }}-windows-x64.zip | awk '{print $1}') >> $GITHUB_OUTPUT
+
       - uses: softprops/action-gh-release@v1
         with:
-          body: |
-            ${{ steps.extract-release-notes.outputs.release_notes }}
+          append_body: true
+          body: |-
+            | ${{ github.event.repository.name }}-windows-x64.zip | ${{ steps.calculate-sha256-core.outputs.sha256 }} |
+          files: |
+            ${{ github.event.repository.name }}-windows-x64.zip
 
   upload-to-release:
     needs:
