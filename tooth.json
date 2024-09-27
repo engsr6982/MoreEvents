@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "tooth": "github.com/engsr6982/MoreEvents",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "info": {
         "name": "MoreEvents",
         "description": "add more event for levilamina cpp plugin",
@@ -12,9 +12,9 @@
             "library"
         ]
     },
-    "asset_url": "https://github.com/engsr6982/MoreEvents/releases/download/v0.1.2/MoreEvents-windows-x64.zip",
+    "asset_url": "https://github.com/engsr6982/MoreEvents/releases/download/v0.2.0/MoreEvents-windows-x64.zip",
     "prerequisites": {
-        "github.com/LiteLDev/LeviLamina": "0.13.5"
+        "github.com/LiteLDev/LeviLamina": ">=0.13.4 <0.14.0"
     },
     "files": {
         "place": [
