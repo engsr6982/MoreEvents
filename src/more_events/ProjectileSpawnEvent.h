@@ -10,11 +10,11 @@ namespace more_events {
 
 class ProjectileSpawnEvent final : public ll::event::Cancellable<ll::event::Event> {
 protected:
-    Actor*             mSpawner;
-    std::string const& mProjectileType;
+    Actor*            mSpawner;
+    std::string const mProjectileType;
 
 public:
-    MORE_EVENTS_API constexpr explicit ProjectileSpawnEvent(Actor* spawner, std::string const& projectileType)
+    MORE_EVENTS_API constexpr explicit ProjectileSpawnEvent(Actor* spawner, std::string const projectileType)
     : Cancellable(),
       mSpawner(spawner),
       mProjectileType(projectileType) {}
