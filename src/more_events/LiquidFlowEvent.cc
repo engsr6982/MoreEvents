@@ -15,7 +15,7 @@ BlockPos const& LiquidFlowEvent::getFlowFromPos() const { return mFlowFromPos; }
 BlockPos const& LiquidFlowEvent::getLiquidPos() const { return mLiquidPos; }
 
 
-LL_AUTO_TYPE_INSTANCE_HOOK(
+LL_TYPE_INSTANCE_HOOK(
     LiquidFlowHook,
     HookPriority::Normal,
     LiquidBlockDynamic,
